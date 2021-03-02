@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Object/PedraMarrom.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 79.013, 24.4685 )
+
+[node name="PedraEscondida" type="KinematicBody2D"]
+position = Vector2( 149.869, 68.4185 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.15 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 400, 320, 336 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

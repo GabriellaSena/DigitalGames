@@ -1,0 +1,206 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://objetos2.tres" type="TileSet" id=1]
+[ext_resource path="res://Fase1.gd" type="Script" id=2]
+[ext_resource path="res://floor.tres" type="TileSet" id=3]
+[ext_resource path="res://arvores.tres" type="TileSet" id=4]
+[ext_resource path="res://PlataformaElevador.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rosquinha.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Personagem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Passagem.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Inimigo.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Pausar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Musica.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1278.01, 43.0162 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 376.072, 31.2488 )
+
+[sub_resource type="Animation" id=3]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1449.62, 232.861 ), Vector2( 1449.62, 480.13 ), Vector2( 1449.62, 232.861 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1710.92, 452.318 ), Vector2( 1710.92, 229.715 ), Vector2( 1710.92, 452.318 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2296.58, 404.617 ), Vector2( 1989.18, 404.617 ), Vector2( 2296.58, 404.617 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2298.77, 300.95 ), Vector2( 2799.68, 300.95 ), Vector2( 2298.77, 300.95 ) ]
+}
+
+[node name="Fase1" type="Node"]
+script = ExtResource( 2 )
+
+[node name="BACKGROUND" type="Node" parent="."]
+
+[node name="ParallaxBackground" parent="BACKGROUND" instance=ExtResource( 12 )]
+
+[node name="CENARIO" type="Node" parent="."]
+
+[node name="Chao" type="StaticBody2D" parent="CENARIO"]
+
+[node name="Area2D" type="Area2D" parent="CENARIO/Chao"]
+position = Vector2( 861.377, 638.813 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CENARIO/Chao/Area2D"]
+position = Vector2( 347, -31.3861 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CENARIO/Chao/Area2D"]
+position = Vector2( 1992.29, -141.363 )
+shape = SubResource( 2 )
+
+[node name="Passagem" parent="CENARIO" instance=ExtResource( 8 )]
+position = Vector2( 3707.92, 384.933 )
+
+[node name="Plataformas" type="Node" parent="CENARIO"]
+
+[node name="PlataformaElevador" parent="CENARIO/Plataformas" instance=ExtResource( 5 )]
+position = Vector2( 1456, 232 )
+collision/safe_margin = 0.001
+
+[node name="Animacao" type="AnimationPlayer" parent="CENARIO/Plataformas/PlataformaElevador"]
+autoplay = "Mov"
+playback_speed = 0.6
+anims/Mov = SubResource( 3 )
+
+[node name="PlataformaElevador2" parent="CENARIO/Plataformas" instance=ExtResource( 5 )]
+position = Vector2( 1710.92, 229.715 )
+
+[node name="Animacao" type="AnimationPlayer" parent="CENARIO/Plataformas/PlataformaElevador2"]
+autoplay = "Mov2"
+playback_speed = 0.6
+anims/Mov2 = SubResource( 4 )
+
+[node name="PlataformaElevador3" parent="CENARIO/Plataformas" instance=ExtResource( 5 )]
+position = Vector2( 2127.49, 404.617 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CENARIO/Plataformas/PlataformaElevador3"]
+autoplay = "Mov3"
+playback_speed = 0.45
+anims/Mov3 = SubResource( 5 )
+
+[node name="PlataformaElevador4" parent="CENARIO/Plataformas" instance=ExtResource( 5 )]
+position = Vector2( 2400.29, 300.95 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CENARIO/Plataformas/PlataformaElevador4"]
+autoplay = "Mov4"
+playback_speed = 0.45
+anims/Mov4 = SubResource( 6 )
+
+[node name="TileMap" type="Node" parent="CENARIO"]
+
+[node name="Objetos" type="TileMap" parent="CENARIO/TileMap"]
+position = Vector2( -20, -10 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 983118, 0, 0, 983119, 0, 0, 983120, 0, 0, 983121, 0, 0, 983122, 0, 0, 983123, 0, 0, 983124, 0, 0, 983125, 0, 0, 983126, 0, 0, 983127, 0, 0, 983128, 0, 0, 983129, 0, 0, 983130, 0, 0, 983131, 0, 0, 983132, 0, 0, 983133, 0, 0, 983134, 0, 0, 983135, 0, 0, 983136, 0, 0, 983137, 0, 0, 983138, 0, 0, 983139, 0, 0, 983140, 0, 0, 1179686, 0, 0, 1179687, 0, 0, 1179688, 0, 0, 1179689, 0, 0, 1179690, 0, 0, 1179691, 0, 0, 1179692, 0, 0, 1179693, 0, 0, 1179694, 0, 0, 1179695, 0, 0, 1179696, 0, 0, 1179697, 0, 0, 1179698, 0, 0, 1179699, 0, 0, 1179700, 0, 0, 1179701, 0, 0, 1179702, 0, 0, 1179703, 0, 0, 1179704, 0, 0, 1179705, 0, 0, 1179706, 0, 0, 1179707, 0, 0, 1179708, 0, 0, 1179709, 0, 0, 1179710, 0, 0, 1179711, 0, 0, 1179712, 0, 0, 1179713, 0, 0, 1179714, 0, 0, 1179715, 0, 0, 1179716, 0, 0, 1179717, 0, 0, 1179718, 0, 0, 1179719, 0, 0, 1179720, 0, 0, 1179721, 0, 0, 1179722, 0, 0, 1179723, 0, 0, 1179724, 0, 0, 1179725, 0, 0 )
+
+[node name="Arvores" type="TileMap" parent="CENARIO/TileMap"]
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 4 )
+format = 1
+tile_data = PoolIntArray( 458754, 0, 0, 983069, 1, 0 )
+
+[node name="Piso" type="TileMap" parent="CENARIO/TileMap"]
+position = Vector2( 56, 0 )
+scale = Vector2( 0.42, 0.42 )
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( 262180, 3, 0, 262182, 4, 0, 262184, 4, 0, 262186, 4, 0, 262188, 4, 0, 262190, 5, 0, 327783, 3, 0, 327785, 4, 0, 327787, 4, 0, 327789, 5, 0, 524301, 3, 0, 524303, 4, 0, 524305, 5, 0, 589850, 3, 0, 589852, 4, 0, 589854, 4, 0, 589856, 5, 0, 851968, 0, 0, 851970, 1, 0, 851972, 1, 0, 851974, 2, 0, 917522, 3, 0, 917524, 4, 0, 917526, 5, 0, 983040, 7, 0, 983042, 6, 0, 983044, 6, 0, 983046, 8, 0, 1048576, 7, 0, 1048578, 6, 0, 1048579, 6, 0, 1048581, 6, 0, 1048694, 0, 0, 1048696, 1, 0, 1048698, 1, 0, 1048700, 1, 0, 1048702, 1, 0, 1048704, 1, 0, 1048706, 1, 0, 1048708, 1, 0, 1048710, 1, 0, 1048712, 1, 0, 1048714, 2, 0, 1114112, 7, 0, 1114118, 9, 0, 1114120, 10, 0, 1114122, 1, 0, 1114124, 1, 0, 1114126, 2, 0, 1114230, 7, 0, 1179648, 7, 0, 1179650, 6, 0, 1179651, 6, 0, 1179652, 6, 0, 1179653, 6, 0, 1179768, 6, 0, 1179769, 6, 0, 1179770, 6, 0, 1179771, 6, 0, 1179772, 6, 0, 1179773, 6, 0, 1179775, 6, 0, 1179776, 6, 0, 1179777, 6, 0, 1179778, 6, 0, 1179779, 6, 0, 1179780, 6, 0, 1179782, 6, 0, 1179783, 6, 0, 1179784, 6, 0, 1179786, 8, 0, 1245184, 7, 0, 1245191, 6, 0, 1245193, 6, 0, 1245195, 6, 0, 1245197, 6, 0, 1245198, 8, 0, 1245216, 0, 0, 1245217, 1, 0, 1245218, 1, 0, 1245219, 1, 0, 1245220, 1, 0, 1245221, 1, 0, 1245222, 1, 0, 1245223, 1, 0, 1245224, 1, 0, 1245226, 2, 0, 1245274, 0, 0, 1245276, 1, 0, 1245278, 1, 0, 1245280, 1, 0, 1245282, 1, 0, 1245284, 1, 0, 1245286, 1, 0, 1245288, 1, 0, 1245290, 1, 0, 1245292, 1, 0, 1245294, 1, 0, 1245296, 1, 0, 1245298, 1, 0, 1245300, 14, 0, 1245302, 15, 0, 1245304, 6, 0, 1245305, 6, 0, 1245306, 6, 0, 1245307, 6, 0, 1245308, 6, 0, 1245309, 6, 0, 1245310, 6, 0, 1245312, 6, 0, 1245313, 6, 0, 1245315, 6, 0, 1245316, 6, 0, 1245317, 6, 0, 1245318, 6, 0, 1245319, 6, 0, 1245320, 6, 0, 1310720, 7, 0, 1310722, 6, 0, 1310723, 6, 0, 1310724, 6, 0, 1310725, 6, 0, 1310727, 6, 0, 1310728, 6, 0, 1310730, 6, 0, 1310732, 6, 0, 1310858, 8, 0, 1376256, 7, 0, 1376258, 6, 0, 1376259, 6, 0, 1376260, 6, 0, 1376261, 6, 0, 1376263, 6, 0, 1376265, 6, 0, 1376267, 6, 0, 1376268, 6, 0, 1376270, 8, 0, 1376288, 7, 0, 1376289, 6, 0, 1376290, 6, 0, 1376291, 6, 0, 1376292, 6, 0, 1376293, 6, 0, 1376294, 6, 0, 1376295, 6, 0, 1376296, 6, 0, 1376298, 8, 0, 1376346, 17, 0, 1376348, 16, 0, 1376350, 16, 0, 1376352, 16, 0, 1376354, 16, 0, 1376356, 16, 0, 1376358, 16, 0, 1376360, 16, 0, 1376362, 16, 0, 1376364, 16, 0, 1376365, 16, 0, 1376366, 16, 0, 1376367, 16, 0, 1376368, 16, 0, 1376369, 16, 0, 1376370, 16, 0, 1376371, 16, 0, 1376372, 16, 0, 1376373, 16, 0, 1376374, 16, 0, 1376375, 16, 0, 1376376, 16, 0, 1376377, 16, 0, 1376378, 16, 0, 1376379, 16, 0, 1376380, 16, 0, 1376381, 16, 0, 1376382, 16, 0, 1376383, 16, 0, 1376384, 16, 0, 1376385, 16, 0, 1376386, 18, 0, 1376387, 16, 0, 1376389, 16, 0, 1376391, 16, 0, 1376392, 16, 0, 1376393, 16, 0, 1376394, 18, 0 )
+
+[node name="PERSONAGENS" type="Node" parent="."]
+
+[node name="GUI" parent="PERSONAGENS" instance=ExtResource( 10 )]
+
+[node name="Personagem" parent="PERSONAGENS" instance=ExtResource( 7 )]
+
+[node name="Inimigos" type="Node" parent="PERSONAGENS"]
+
+[node name="Inimigo2" parent="PERSONAGENS/Inimigos" instance=ExtResource( 9 )]
+position = Vector2( 1150.75, 79.3903 )
+
+[node name="Inimigo" parent="PERSONAGENS/Inimigos" instance=ExtResource( 9 )]
+position = Vector2( 847.95, 208.575 )
+
+[node name="Inimigo3" parent="PERSONAGENS/Inimigos" instance=ExtResource( 9 )]
+position = Vector2( 3337.17, 404.956 )
+
+[node name="ITENS" type="Node" parent="."]
+
+[node name="ROSQUINHA" parent="ITENS" instance=ExtResource( 6 )]
+position = Vector2( 472, 200 )
+
+[node name="ROSQUINHA2" parent="ITENS" instance=ExtResource( 6 )]
+position = Vector2( 1142.59, 495.587 )
+
+[node name="ROSQUINHA3" parent="ITENS" instance=ExtResource( 6 )]
+position = Vector2( 1304, 88 )
+
+[node name="ROSQUINHA4" parent="ITENS" instance=ExtResource( 6 )]
+position = Vector2( 2912, 120 )
+
+[node name="Pausar" parent="." instance=ExtResource( 11 )]
+
+[node name="Musica" parent="." instance=ExtResource( 13 )]
+autoplay = true
+[connection signal="body_entered" from="CENARIO/Chao/Area2D" to="PERSONAGENS/Personagem" method="_personagem_cair"]
+[connection signal="finished" from="Musica" to="." method="_on_Musica_finished"]

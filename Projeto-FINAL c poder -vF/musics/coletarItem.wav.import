@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/coletarItem.wav-a9d561159a82c6415c5c534a8a212475.sample"
+
+[deps]
+
+source_file="res://musics/coletarItem.wav"
+dest_files=[ "res://.import/coletarItem.wav-a9d561159a82c6415c5c534a8a212475.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

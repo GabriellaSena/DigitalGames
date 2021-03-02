@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://BG/BG.png" type="Texture" id=1]
+[ext_resource path="res://icons/rosto.png" type="Texture" id=2]
+[ext_resource path="res://gameOver.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/Cave-Story.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 150
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://fonts/Cave-Story.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = SubResource( 3 )
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Control
+
+func _ready():
+	pass # Replace with function body.
+
+
+func _on_Button2_pressed():
+	get_tree().quit()
+	pass
+
+
+func _on_Button_pressed():
+	get_tree().change_scene(\"res://menu.tscn\")
+	pass # Replace with function body.
+"
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://fonts/Cave-Story.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = SubResource( 5 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.002
+anchor_bottom = 0.993
+margin_right = -0.0480957
+margin_bottom = 0.199951
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BACKGROUND" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BACKGROUND"]
+
+[node name="Sprite" type="Sprite" parent="BACKGROUND/ParallaxLayer"]
+position = Vector2( 888, 432 )
+texture = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -297.453
+margin_top = -126.327
+margin_right = 279.547
+margin_bottom = -32.3268
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.886275, 0.192157, 0.192157, 1 )
+text = "GAME OVER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -186.139
+margin_top = -0.622681
+margin_right = 125.861
+margin_bottom = 37.3773
+custom_fonts/font = SubResource( 4 )
+text = "MENU PRINCIPAL"
+script = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.5197
+margin_top = 70.6812
+margin_right = 16.4803
+margin_bottom = 108.681
+custom_fonts/font = SubResource( 6 )
+text = "SAIR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 142.608, 352.844 )
+scale = Vector2( 0.629919, 0.614812 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 876.965, 338.877 )
+scale = Vector2( 0.629919, 0.614812 )
+texture = ExtResource( 2 )
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="Button" method="_on_Button2_pressed"]

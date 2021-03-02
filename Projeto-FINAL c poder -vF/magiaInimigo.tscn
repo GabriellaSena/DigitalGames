@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sparks/particles_fireball_small/0009.png" type="Texture" id=1]
+[ext_resource path="res://sparks/particles_fireball_small/0010.png" type="Texture" id=2]
+[ext_resource path="res://sparks/particles_fireball_small/0008.png" type="Texture" id=3]
+[ext_resource path="res://magiaInimigo.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 77.6545
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 82.1994
+
+[node name="magiaInimigo" type="Area2D"]
+script = ExtResource( 4 )
+
+[node name="icone" type="AnimatedSprite" parent="."]
+position = Vector2( -0.450943, 0.225468 )
+rotation = -1.57638
+scale = Vector2( 0.985908, 1.00705 )
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="detectorI" type="Area2D" parent="."]
+
+[node name="colisao" type="CollisionShape2D" parent="detectorI"]
+shape = SubResource( 2 )
+
+[node name="colisao" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+[connection signal="body_entered" from="detectorI" to="." method="_on_detector_body_entered"]

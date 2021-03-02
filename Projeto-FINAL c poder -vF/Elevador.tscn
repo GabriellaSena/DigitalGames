@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://PlataformaMovel.gd" type="Script" id=1]
+[ext_resource path="res://Object/Crate.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48.6271, 48.8831 )
+
+[node name="PlataformaMovel" type="KinematicBody2D"]
+position = Vector2( 1866.96, 398.932 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -6.62332, 14.1678 )
+scale = Vector2( 1.27934, 1.27409 )
+texture = ExtResource( 2 )
+
+[node name="ShapePlaMovel" type="CollisionShape2D" parent="."]
+position = Vector2( -6.72278, 14.6373 )
+shape = SubResource( 1 )

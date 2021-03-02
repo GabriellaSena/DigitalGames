@@ -1,0 +1,278 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://BG/BG.png" type="Texture" id=1]
+[ext_resource path="res://icons/spacebar.png" type="Texture" id=2]
+[ext_resource path="res://icons/wasd (1).png" type="Texture" id=3]
+[ext_resource path="res://voltar.gd" type="Script" id=4]
+[ext_resource path="res://Itens/rosquinhas.png" type="Texture" id=5]
+[ext_resource path="res://sprite/Running/Run__006.png" type="Texture" id=6]
+[ext_resource path="res://sprite/Running/Run__007.png" type="Texture" id=7]
+[ext_resource path="res://Itens/pizza.png" type="Texture" id=8]
+[ext_resource path="res://sprite/Running/Run__000.png" type="Texture" id=9]
+[ext_resource path="res://sprite/Running/Run__009.png" type="Texture" id=10]
+[ext_resource path="res://sprite/Running/Run__008.png" type="Texture" id=11]
+[ext_resource path="res://sprite/Running/Run__002.png" type="Texture" id=12]
+[ext_resource path="res://sprite/Running/Run__005.png" type="Texture" id=13]
+[ext_resource path="res://sprite/Running/Run__003.png" type="Texture" id=14]
+[ext_resource path="res://sprite/Running/Run__004.png" type="Texture" id=15]
+[ext_resource path="res://female/Walk (4).png" type="Texture" id=16]
+[ext_resource path="res://female/Walk (7).png" type="Texture" id=17]
+[ext_resource path="res://female/Walk (3).png" type="Texture" id=18]
+[ext_resource path="res://female/Walk (1).png" type="Texture" id=19]
+[ext_resource path="res://female/Walk (5).png" type="Texture" id=20]
+[ext_resource path="res://female/Walk (9).png" type="Texture" id=21]
+[ext_resource path="res://female/Walk (2).png" type="Texture" id=22]
+[ext_resource path="res://female/Walk (8).png" type="Texture" id=23]
+[ext_resource path="res://female/Walk (10).png" type="Texture" id=24]
+[ext_resource path="res://female/Walk (6).png" type="Texture" id=25]
+[ext_resource path="res://sprite/Running/Run__001.png" type="Texture" id=26]
+[ext_resource path="res://male/Walk (1).png" type="Texture" id=27]
+[ext_resource path="res://male/Walk (2).png" type="Texture" id=28]
+[ext_resource path="res://male/Walk (3).png" type="Texture" id=29]
+[ext_resource path="res://male/Walk (5).png" type="Texture" id=30]
+[ext_resource path="res://male/Walk (10).png" type="Texture" id=31]
+[ext_resource path="res://male/Walk (6).png" type="Texture" id=32]
+[ext_resource path="res://male/Walk (4).png" type="Texture" id=33]
+[ext_resource path="res://male/Walk (9).png" type="Texture" id=34]
+[ext_resource path="res://male/Walk (7).png" type="Texture" id=35]
+[ext_resource path="res://male/Walk (8).png" type="Texture" id=36]
+[ext_resource path="res://icons/attack.png" type="Texture" id=37]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/Cave-Story.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://fonts/Cave-Story.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://fonts/Cave-Story.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = SubResource( 5 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 33 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://fonts/Cave-Story.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 50
+font_data = SubResource( 9 )
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://fonts/Cave-Story.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
+font_data = SubResource( 11 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk",
+"speed": 10.0
+} ]
+
+[sub_resource type="DynamicFontData" id=14]
+font_path = "res://fonts/Cave-Story.ttf"
+
+[sub_resource type="DynamicFont" id=15]
+size = 52
+font_data = SubResource( 14 )
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BACKGROUND" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BACKGROUND"]
+
+[node name="Sprite" type="Sprite" parent="BACKGROUND/ParallaxLayer"]
+position = Vector2( 888, 432 )
+texture = ExtResource( 1 )
+
+[node name="comoJogar" type="Node2D" parent="."]
+
+[node name="TECLAS" type="Sprite" parent="comoJogar"]
+position = Vector2( 144, 168 )
+scale = Vector2( 0.194511, 0.188153 )
+texture = ExtResource( 3 )
+
+[node name="ESPACO" type="Sprite" parent="comoJogar"]
+position = Vector2( 147.913, 291.397 )
+scale = Vector2( 0.354744, 0.338289 )
+texture = ExtResource( 2 )
+
+[node name="attack" type="Sprite" parent="comoJogar"]
+position = Vector2( 376.794, 148.461 )
+scale = Vector2( 0.261491, 0.227521 )
+texture = ExtResource( 37 )
+
+[node name="Titulo" type="Label" parent="comoJogar"]
+margin_left = 136.0
+margin_top = 16.0
+margin_right = 402.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.0666667, 0.678431, 0.203922, 1 )
+text = "Como jogar
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="comoJogar"]
+margin_left = 59.61
+margin_top = 79.355
+margin_right = 284.61
+margin_bottom = 217.355
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
+text = "Mover-se
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="comoJogar"]
+margin_left = 91.01
+margin_top = 328.445
+margin_right = 203.01
+margin_bottom = 430.445
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
+text = "Pular
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="comoJogar"]
+margin_left = 324.9
+margin_top = 240.967
+margin_right = 444.9
+margin_bottom = 272.967
+custom_fonts/font = SubResource( 4 )
+text = "Atacar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inimigos" type="Node2D" parent="."]
+
+[node name="title" type="Label" parent="Inimigos"]
+margin_left = 648.0
+margin_top = 16.0
+margin_right = 795.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.698039, 0.0352941, 0.0352941, 1 )
+text = "Inimigos
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ZOMBIE" type="AnimatedSprite" parent="Inimigos"]
+position = Vector2( 664, 168 )
+scale = Vector2( 0.296065, 0.340278 )
+frames = SubResource( 7 )
+animation = "walk"
+frame = 3
+playing = true
+
+[node name="ZOMBIE2" type="AnimatedSprite" parent="Inimigos"]
+position = Vector2( 856, 184 )
+scale = Vector2( 0.332558, 0.327071 )
+frames = SubResource( 8 )
+animation = "walk"
+frame = 8
+playing = true
+
+[node name="ITENS" type="Node2D" parent="."]
+
+[node name="title" type="Label" parent="ITENS"]
+margin_left = 246.06
+margin_top = 390.318
+margin_right = 426.06
+margin_bottom = 422.318
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.839216, 0.32549, 0.882353, 1 )
+text = "Coletaveis"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ITENS"]
+position = Vector2( 250.906, 542.081 )
+scale = Vector2( 0.0874586, 0.104261 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="ITENS"]
+position = Vector2( 402.735, 545.878 )
+scale = Vector2( 0.250825, 0.227605 )
+texture = ExtResource( 5 )
+
+[node name="PERSONAGEM" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="PERSONAGEM"]
+margin_left = 600.323
+margin_top = 383.097
+margin_right = 754.323
+margin_bottom = 415.097
+custom_fonts/font = SubResource( 12 )
+text = "Jogador"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="PERSONAGEM"]
+position = Vector2( 669.977, 515.229 )
+scale = Vector2( 0.374138, 0.322 )
+frames = SubResource( 13 )
+animation = "walk"
+frame = 9
+playing = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 800.0
+margin_top = 528.0
+margin_right = 955.0
+margin_bottom = 567.0
+custom_fonts/font = SubResource( 15 )
+text = "VOLTAR"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="Button" method="_voltar_menu"]

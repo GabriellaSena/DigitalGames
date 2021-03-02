@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/epic loop.wav-8347e588aa3a8eb8c5927f8b4987c6a1.sample"
+
+[deps]
+
+source_file="res://musics/epic loop.wav"
+dest_files=[ "res://.import/epic loop.wav-8347e588aa3a8eb8c5927f8b4987c6a1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
